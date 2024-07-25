@@ -38,7 +38,9 @@ steps:
       nobuild: true
       versioningScheme: 'off'
 
-  - task: NuGetAuthenticate@0
+  - task: NuGetAuthenticate@1
+    inputs:
+      nuGetServiceConnections: 'Nuget-ADO'
 
   - task: NuGetCommand@2
     displayName: 'Publish $(ProjectName)'
