@@ -1,11 +1,11 @@
 trigger:
-  - main
+  - none
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  ProjectName: 'MyHealth.Common'
+  ProjectName: 'ADO-Artifacts'
   ProjectPath: '**/MyHealth.Common.csproj'
   buildConfiguration: 'Release'
 
@@ -43,10 +43,8 @@ steps:
   - task: NuGetCommand@2
     displayName: 'Publish $(ProjectName)'
     inputs:
-      command: push
-      feedsToUse: 'select'
+      command: 'push'
       packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
       nuGetFeedType: 'internal'
-      publishVstsFeed: 'VelidaDemos/VelidaNuGet'
-      versioningScheme: 'off'
+      publishVstsFeed: 'oops'
       allowPackageConflicts: true
